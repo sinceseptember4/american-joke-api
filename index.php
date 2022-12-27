@@ -4,11 +4,11 @@ $json = file_get_contents($url);
 $json = mb_convert_encoding($json, 'UTF8');
 $arr = json_decode($json,true);
 $jokes =$arr["jokes"];
-$count = count($jokes);
+$count = count($jokes)-1;
 $rand = mt_rand(0, $count);
-$selectjoke = nl2br($jokes[$rand]["joke"]);
+$selectJoke = nl2br($jokes[$rand]["joke"]);
 $title = $jokes[$rand]["title"];
-//echo $selectjoke;
+//echo $selectJoke;
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +21,12 @@ $title = $jokes[$rand]["title"];
 </head>
 <body>
     <h1><?php echo $title; ?></h1>
-    <p><?php echo $selectjoke; ?></p>
+    <p><?php echo $selectJoke; ?></p>
+    <button onclick="reload()">次へ</button>
 </body>
+<script>
+    function reload () {
+        location.reload()
+    }
+</script>
 </html>
