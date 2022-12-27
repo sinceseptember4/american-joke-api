@@ -26,7 +26,7 @@ $title = $jokes[$rand]["title"];
 </body>
 <script>
     function reload () {
-        location.reload()
+        location.reload();
     }
 </script>
 </html>
